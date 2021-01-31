@@ -1,0 +1,17 @@
+{
+  "name": "pong",
+  "version": "1.0.0",
+  "description": "the game pong",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webgame",
+    "canvas",
+    "pong",
+    "arcade"
+  ],
+  "author": "Espen Berget",
+  "license": "ISC"
+}
