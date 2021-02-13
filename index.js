@@ -72,19 +72,29 @@ class Game {
         this.ball.render(this.ctx);
     }
 
-    animate() {
-        window.requestAnimationFrame(() => this.animate());
-        this.clear();
-        this.left.move();
-        this.right.move();
-        this.ball.move();
-        this.ballHit();
-        this.render();
+    animate(timestamp) {
+        let progress = 0;
+        if (timestamp < 0) {
+            this.startTime = timestamp;
+        } else {
+            progress = timestamp - this.startTime;
+        }
+        if (progress < this.animationLength) {
+            window.requestAnimationFrame(() => this.animate(0));
+            this.clear();
+            this.left.move();
+            this.right.move();
+            this.ball.move();
+            this.ballHit();
+            this.render();
+        }
     }
 
     begin() {
+        this.startTime = -1;
+        this.animationLength = 500;
         this.setupEvents();
-        this.animate();
+        this.animate(0);
     }
 }
 
